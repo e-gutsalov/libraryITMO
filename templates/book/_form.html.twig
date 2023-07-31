@@ -1,0 +1,26 @@
+<div id = "simpleform">
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+
+    {% if book.path %}
+        <img src="{{ asset('uploads/' ~ book.path) }}" width="150" height="200" alt="Book cover"/>
+    {% else %}
+        <img src="{{ asset('uploads/bookblack.png') }}" width="150" height="200" alt="Book cover"/>
+    {% endif %}
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Authors</th>
+            {% for author in book.authors %}
+                <td>{{ author.surname }} {{ author.name }} {{ author.patronymic }}</td>
+            {% else %}
+                <td></td>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+</div>

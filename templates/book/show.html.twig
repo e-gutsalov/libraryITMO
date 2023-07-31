@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book{% endblock %}
+
+{% block body %}
+    <h1>Book</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ book.id }}</td>
+            </tr>
+            <tr>
+                <th>Book cover</th>
+                <td>
+                    {% if book.path %}
+                        <img src="{{ asset('uploads/' ~ book.path) }}" width="150" height="200" alt="Book cover"/>
+                    {% else %}
+                        <img src="{{ asset('uploads/bookblack.png') }}" width="150" height="200" alt="Book cover"/>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ book.name }}</td>
+            </tr>
+            <tr>
+                <th>YearPublication</th>
+                <td>{{ book.yearPublication }}</td>
+            </tr>
+            <tr>
+                <th>ISBN</th>
+                <td>{{ book.ISBN }}</td>
+            </tr>
+            <tr>
+                <th>PageCount</th>
+                <td>{{ book.pageCount }}</td>
+            </tr>
+            <tr>
+                <th>Authors</th>
+                {% for author in book.authors %}
+                    <td>{{ author.surname }} {{ author.name }} {{ author.patronymic }}</td>
+                {% else %}
+                    <td></td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_book_index') }}">back to list</a>
+
+    <a href="{{ path('app_book_edit', {'id': book.id}) }}">edit</a>
+
+    {{ include('book/_delete_form.html.twig') }}
+{% endblock %}
