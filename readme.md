@@ -52,7 +52,7 @@ export NAME=test-db && docker run \
 
 Внешний порт для контейнера 48700
 
-DATABASE_URL=mysql://db_user:db_password@127.0.0.1:48700/libraryITMO
+DATABASE_URL=mysql://root:rootroot@127.0.0.1:48700/libraryITMO
 
 ## Запуск и остановка докер контейнера с базой данных:
 
