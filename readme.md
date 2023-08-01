@@ -42,3 +42,24 @@ export NAME=test-db && docker run \
 -e MYSQL_PASSWORD=rootroot \
 --rm -d --name ${NAME} mysql:5.7 \
 )
+
+
+# Описание
+
+Проверить настройки к базе данных в файле .env
+
+Необходимо указать действующего пользователя базы данных и пароль, а также хост и порт:
+
+Внешний порт для контейнера 48700
+
+DATABASE_URL=mysql://db_user:db_password@127.0.0.1:48700/libraryITMO
+
+## Запуск и остановка докер контейнера с базой данных:
+
+composer docker-up
+
+composer docker-down
+
+## Сборка проекта: 
+
+composer install
