@@ -11,12 +11,13 @@
     <table class="table">
         <tbody>
         <tr>
-            <th>Authors</th>
-            {% for author in book.authors %}
-                <td>{{ author.surname }} {{ author.name }} {{ author.patronymic }}</td>
-            {% else %}
-                <td></td>
-            {% endfor %}
+            <th>Authors of the book</th>
+            <td>
+                {% for author in book.authors %}
+                    {{ author.surname }} {{ author.name }} {{ author.patronymic }}
+                {% else %}
+                {% endfor %}
+            </td>
         </tr>
         </tbody>
     </table>

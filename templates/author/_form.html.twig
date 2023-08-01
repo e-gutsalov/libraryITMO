@@ -1,6 +1,21 @@
 <div id = "simpleform">
 {{ form_start(form) }}
     {{ form_widget(form) }}
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Books by the author</th>
+            <td>
+                {% for book in author.books %}
+                    {{ book.name }}
+                {% else %}
+                {% endfor %}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 </div>

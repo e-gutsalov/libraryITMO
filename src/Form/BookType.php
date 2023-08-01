@@ -34,12 +34,14 @@ class BookType extends AbstractType
                     ])
                 ],
             ])
-//            ->add('authors', EntityType::class, [
-//                'class' => Author::class,
-//                'choice_label' => fn(Author $author): string => $author->getFullName(),
-//                'required' => false,
-//                'multiple' => true,
-//            ])
+            ->add('authors', EntityType::class, [
+                'class' => Author::class,
+                'label' => 'All Authors',
+                'by_reference' => false,
+                'choice_label' => fn(Author $author): string => $author->getFullName(),
+                'required' => false,
+                'multiple' => true,
+            ])
         ;
     }
 
