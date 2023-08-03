@@ -27,7 +27,7 @@ class BookRepository extends ServiceEntityRepository
      * @return Book|null
      * @throws NonUniqueResultException
      */
-    public function checkBook(Book $book): Book|null
+    public function checkBook(Book $book): ?Book
     {
         $qb = $this->createQueryBuilder('a');
         return $qb

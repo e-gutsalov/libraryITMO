@@ -27,7 +27,7 @@ class AuthorRepository extends ServiceEntityRepository
      * @return Author|null
      * @throws NonUniqueResultException
      */
-    public function checkAuthor(Author $author): Author|null
+    public function checkAuthor(Author $author): ?Author
     {
         $qb = $this->createQueryBuilder('a');
         return $qb
